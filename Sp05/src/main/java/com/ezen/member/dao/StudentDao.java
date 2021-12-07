@@ -114,4 +114,27 @@ public class StudentDao {
 			close();
 		}
 	}
+
+	public Student selectOneStudent(String sNum) {
+		String sql = "select * from student where sNum = ?";
+		Student std = null;
+		con = getConnection();
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, sNum);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				std = new Student(rs.getString("snum"), rs.getString("sid"), rs.getString("spw"), 
+						rs.getString("sname") ,rs.getInt("sage"), rs.getString("sgender"), rs.getString("smajor"));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return std;
+	}
 }

@@ -9,12 +9,18 @@ public class StudentAssembler {
 	private StudentInsertService is;
 	private StudentSelectService ss;
 	private StudentUpdateService us;
+	private StudentSelectOneService sss;
 	
 	public StudentAssembler() {
 		sdao = new StudentDao(); // 객체 생성
 		is = new StudentInsertService(sdao); // 조립
 		ss = new StudentSelectService(sdao);
 		us = new StudentUpdateService(sdao);
+		sss = new StudentSelectOneService(sdao);
+	}
+	
+	public StudentSelectOneService getSss() {
+		return sss;
 	}
 	
 	public StudentUpdateService getUs() {

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.ezen.member.dto.Student;
 import com.ezen.member.service.StudentAssembler;
 import com.ezen.member.service.StudentInsertService;
+import com.ezen.member.service.StudentSelectOneService;
 import com.ezen.member.service.StudentSelectService;
 import com.ezen.member.service.StudentUpdateService;
 
@@ -63,6 +64,17 @@ public class MainClass {
 		StudentUpdateService us = assembler.getUs();
 		Student uStd = new Student("H39asdfaelu42o23", "userid", 
 				"12345", "agatha", 25, "W", "Korean Laguage");
-		us.updateStudent(uStd);
+		// us.updateStudent(uStd);
+		
+		StudentSelectOneService sss = assembler.getSss();
+		uStd = sss.selectOneStudent("H39asdfaelu42o23");
+		System.out.print("sNum : " + uStd.getsNum() + "\t");
+		System.out.print("| sId : " + uStd.getsId() + "\t");
+		System.out.print("| sPw : " + uStd.getsPw() + "\t");
+		System.out.print("| sName : " + uStd.getsName() + "\t");
+		System.out.print("| sAge : " + uStd.getsAge() + "\t");
+		System.out.print("| sGender : " + uStd.getsGender() + "\t");
+		System.out.print("| sMajor : " + uStd.getsMajor() + "\n");
+
 	}
 }
