@@ -68,12 +68,12 @@ public class MainClass {
 		
 		StudentSelectOneService sss = assembler.getSss();
 		uStd = sss.selectOneStudent("H39asdfaelu42o23");
-		System.out.print("sNum : " + uStd.getsNum() + "\t");
-		System.out.print("| sId : " + uStd.getsId() + "\t");
-		System.out.print("| sPw : " + uStd.getsPw() + "\t");
-		System.out.print("| sName : " + uStd.getsName() + "\t");
-		System.out.print("| sAge : " + uStd.getsAge() + "\t");
-		System.out.print("| sGender : " + uStd.getsGender() + "\t");
+		System.out.print("sNum : " + uStd.getsNum() + "\n");
+		System.out.print("| sId : " + uStd.getsId() + "\n");
+		System.out.print("| sPw : " + uStd.getsPw() + "\n");
+		System.out.print("| sName : " + uStd.getsName() + "\n");
+		System.out.print("| sAge : " + uStd.getsAge() + "\n");
+		System.out.print("| sGender : " + uStd.getsGender() + "\n");
 		System.out.print("| sMajor : " + uStd.getsMajor() + "\n");
 
 	}
