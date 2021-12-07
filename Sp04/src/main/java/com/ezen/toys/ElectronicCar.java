@@ -6,7 +6,7 @@ import com.ezen.bettery.NormalBattery;
 public class ElectronicCar {
 	private Battery bat; // 인터페이스 레퍼런스 변수.
 	
-	ElectronicCar(){
+	public ElectronicCar(){
 		bat = new NormalBattery();
 		// 인터페이스 멤버 변수에 battery를 임플리먼트한 클래스를 대입합니다.
 	}

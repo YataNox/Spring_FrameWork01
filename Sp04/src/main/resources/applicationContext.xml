@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+		<bean class="com.ezen.battery.NormalBattery" id="nBattery"></bean>
+		<bean class="com.ezen.battery.ChargeBattery" id="cBattery"></bean>
+		
+		<bean class="com.ezen.toys.ElectronicCar" id="car"></bean>
+		<bean class="com.ezen.toys.ElectronicRobot" id="robot"></bean>
+		
+		<bean class="com.ezen.toys.ElectronicRadio" id="radio">
+			<constructor-arg ref="cBattery"></constructor-arg>
+			<!-- 의존 주입 - 객체 조립 -->
+		</bean>
+		<!-- 스프링 프레임워크에서 의존주입은 스프링 컨테이너에 bean으로 객체를 넣어두는 시점에
+		(객체 하나가 만들어져서 저장) 전달인수의 전달 및 장착이 모두 구현됩니다.
+		이를 "객체조립"이라고 합니다. -->
+</beans>
