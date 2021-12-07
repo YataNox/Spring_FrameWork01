@@ -1,8 +1,11 @@
 package com.ezen.member.main;
 
+import java.util.ArrayList;
+
 import com.ezen.member.dto.Student;
 import com.ezen.member.service.StudentAssembler;
 import com.ezen.member.service.StudentInsertService;
+import com.ezen.member.service.StudentSelectService;
 
 public class MainClass {
 	public static void main(String[] args) {
@@ -41,6 +44,19 @@ public class MainClass {
 			Student std1 = new Student(sNums[i], sIds[i], sPws[i], 
 					sNames[i], sAges[i], sGenders[i], sMajors[i]);
 			// is.insertStudent(std1);
+		}
+		
+		StudentSelectService ss = assembler.getSs();
+		ArrayList<Student> list = ss.selectStudent();
+		
+		for(int j = 0; j < list.size(); j++) {
+			System.out.print("| sNum : " + list.get(j).getsNum() + "\t");
+			System.out.print("| sId : " + list.get(j).getsId() + "\t");
+			System.out.print("| sPw : " + list.get(j).getsPw() + "\t");
+			System.out.print("| sName : " + list.get(j).getsName() + "\t");
+			System.out.print("| sAge : " + list.get(j).getsAge() + "\t");
+			System.out.print("| sGender : " + list.get(j).getsGender() + "\t");
+			System.out.print("| sMajor : " + list.get(j).getsMajor() + "\n");
 		}
 	}
 }

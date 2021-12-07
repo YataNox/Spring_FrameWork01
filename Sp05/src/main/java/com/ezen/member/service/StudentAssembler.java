@@ -7,10 +7,16 @@ import com.ezen.member.dao.StudentDao;
 public class StudentAssembler {
 	private StudentDao sdao;
 	private StudentInsertService is;
+	private StudentSelectService ss;
 	
 	public StudentAssembler() {
 		sdao = new StudentDao(); // 객체 생성
 		is = new StudentInsertService(sdao); // 조립
+		ss = new StudentSelectService(sdao);
+	}
+	
+	public StudentSelectService getSs() {
+		return ss;
 	}
 	
 	public StudentInsertService getIs() {

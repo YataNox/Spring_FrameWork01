@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.ezen.member.dto.Student;
 
@@ -66,5 +67,28 @@ public class StudentDao {
 		}finally {
 			close();
 		}
+	}
+
+	public ArrayList<Student> selectStudent() {
+		String sql = "select * from student";
+		ArrayList<Student> list = new ArrayList<Student>();
+		con = getConnection();
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Student svo = new Student(rs.getString("snum"), rs.getString("sid"), rs.getString("spw"), 
+						rs.getString("sname") ,rs.getInt("sage"), rs.getString("sgender"), rs.getString("smajor"));
+				list.add(svo);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return list;
 	}
 }
