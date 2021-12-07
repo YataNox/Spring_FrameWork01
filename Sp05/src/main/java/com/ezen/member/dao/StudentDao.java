@@ -48,5 +48,15 @@ public class StudentDao {
 	public void insertStudent(Student std) {
 		String sql = "insert into student values()";
 		
+		Connection con = getConnection();
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
 	}
 }

@@ -1,8 +1,7 @@
 package com.ezen.member.main;
 
-import com.ezen.member.dao.StudentAssembler;
-import com.ezen.member.dao.StudentDao;
 import com.ezen.member.dto.Student;
+import com.ezen.member.service.StudentAssembler;
 import com.ezen.member.service.StudentInsertService;
 
 public class MainClass {
