@@ -46,13 +46,21 @@ public class StudentDao {
 	}
 
 	public void insertStudent(Student std) {
-		String sql = "insert into student values()";
+		String sql = "insert into student(snum, sid, spw, sname, sage, sgender, smajor) "
+				+ "values(?, ?, ?, ?, ?, ?, ?)";
 		
-		Connection con = getConnection();
+		con = getConnection();
 		
 		try {
 			pstmt = con.prepareStatement(sql);
-			
+			pstmt.setString(1, std.getsNum());
+			pstmt.setString(2, std.getsId());
+			pstmt.setString(3, std.getsPw());
+			pstmt.setString(4, std.getsName());
+			pstmt.setInt(5, std.getsAge());
+			pstmt.setString(6, std.getsGender());
+			pstmt.setString(7, std.getsMajor());
+			pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
