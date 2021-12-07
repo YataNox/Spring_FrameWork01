@@ -4,6 +4,6 @@ create table student(
 	sPw varchar2(20),
 	sName varchar(20),
 	sAge number(3),
-	sGender varcher(20),
+	sGender varchar2(20),
 	sMajor varchar2(80)
 );
