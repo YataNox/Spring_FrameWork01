@@ -7,3 +7,5 @@ create table student(
 	sGender varchar2(20),
 	sMajor varchar2(80)
 );
+
+select * from student;
