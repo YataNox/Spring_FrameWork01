@@ -8,11 +8,17 @@ public class StudentAssembler {
 	private StudentDao sdao;
 	private StudentInsertService is;
 	private StudentSelectService ss;
+	private StudentUpdateService us;
 	
 	public StudentAssembler() {
 		sdao = new StudentDao(); // 객체 생성
 		is = new StudentInsertService(sdao); // 조립
 		ss = new StudentSelectService(sdao);
+		us = new StudentUpdateService(sdao);
+	}
+	
+	public StudentUpdateService getUs() {
+		return us;
 	}
 	
 	public StudentSelectService getSs() {

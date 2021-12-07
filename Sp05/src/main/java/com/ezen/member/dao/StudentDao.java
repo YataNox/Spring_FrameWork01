@@ -91,4 +91,27 @@ public class StudentDao {
 		
 		return list;
 	}
+
+	public void updateStudent(Student sdt) {
+		String sql = "update student set sid=?, spw=?, sname=?, sage=?, "
+				+ "sgender=?, smajor=? where snum = ?";
+		
+		con = getConnection();
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, sdt.getsId());
+			pstmt.setString(2, sdt.getsPw());
+			pstmt.setString(3, sdt.getsName());
+			pstmt.setInt(4, sdt.getsAge());
+			pstmt.setString(5, sdt.getsGender());
+			pstmt.setString(6, sdt.getsMajor());
+			pstmt.setString(7, sdt.getsNum());
+			pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+	}
 }

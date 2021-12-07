@@ -6,6 +6,7 @@ import com.ezen.member.dto.Student;
 import com.ezen.member.service.StudentAssembler;
 import com.ezen.member.service.StudentInsertService;
 import com.ezen.member.service.StudentSelectService;
+import com.ezen.member.service.StudentUpdateService;
 
 public class MainClass {
 	public static void main(String[] args) {
@@ -58,5 +59,10 @@ public class MainClass {
 			System.out.print("| sGender : " + list.get(j).getsGender() + "\t");
 			System.out.print("| sMajor : " + list.get(j).getsMajor() + "\n");
 		}
+		
+		StudentUpdateService us = assembler.getUs();
+		Student uStd = new Student("H39asdfaelu42o23", "userid", 
+				"12345", "agatha", 25, "W", "Korean Laguage");
+		us.updateStudent(uStd);
 	}
 }
