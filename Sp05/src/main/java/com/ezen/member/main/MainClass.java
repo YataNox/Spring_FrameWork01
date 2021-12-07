@@ -36,6 +36,11 @@ public class MainClass {
 		
 		StudentAssembler assembler = new StudentAssembler();
 		StudentInsertService is = assembler.getIs();
-		is.insertStudent(std);
+		// is.insertStudent(std);
+		for(int i = 0; i < sNums.length; i++) {
+			Student std1 = new Student(sNums[i], sIds[i], sPws[i], 
+					sNames[i], sAges[i], sGenders[i], sMajors[i]);
+			// is.insertStudent(std1);
+		}
 	}
 }
