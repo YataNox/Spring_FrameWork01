@@ -23,7 +23,7 @@ public class MainClass {
 		
 		for(int i = 0; i < values.length; i++) {
 			WordSet wordSet = new WordSet(keyWords[i],values[i]);
-			//rgt.register(wordSet);
+			rgt.register(wordSet);
 		}
 		
 		WordSearchService ss = ctx.getBean("searchService", WordSearchService.class);
