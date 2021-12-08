@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.context.support.GenericXmlApplicationContext;
 
+import com.ezen.student.dto.EMSInformationService;
 import com.ezen.student.dto.Student;
 import com.ezen.student.service.InsertService;
 import com.ezen.student.service.SelectAllService;
@@ -42,5 +43,10 @@ public class MainClass {
 		
 		
 		UpdateService us = ctx.getBean("updateService", UpdateService.class);
+		
+		EMSInformationService eis = ctx.getBean("informationService", EMSInformationService.class);
+		eis.outputEMSInformation();
+		
+		ctx.close();
 	}
 }
