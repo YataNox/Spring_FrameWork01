@@ -7,13 +7,24 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.ezen.student.dto.DataBaseConnectionInfo;
 import com.ezen.student.dto.Student;
 
 public class StudentDao {
-	String driver = "oracle.jdbc.driver.OracleDriver";
-	String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	String id = "scott";
-	String pw = "tiger";
+	String driver = null;/* "oracle.jdbc.driver.OracleDriver"; */
+	String url = null;/* "jdbc:oracle:thin:@localhost:1521:xe"; */
+	String id = null;
+	String pw = null;
+	
+	// Construct
+	public StudentDao(DataBaseConnectionInfo dbconinfo) {
+		this.driver = dbconinfo.getDriver();
+		this.url = dbconinfo.getjdbcUrl();
+		this.id = dbconinfo.getuserId();
+		this.pw = dbconinfo.getuserPw();
+	}
+
+	// connection object / connect/close Method
 	Connection con = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
@@ -46,6 +57,7 @@ public class StudentDao {
 		}
 	}
 
+	// Method 
 	public Student SelectOneStudent(String sNum) {
 		String sql = "select * from student where sNum = ?";
 		Student std = null;

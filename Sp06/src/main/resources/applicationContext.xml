@@ -5,7 +5,23 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean class="com.ezen.student.dao.StudentDao" id="studentdao"></bean>
+	<bean id="dbconinfo1" class="com.ezen.student.dto.DataBaseConnectionInfo">
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="userId" value="scott"/>
+		<property name="userPw" value="tiger"/>
+	</bean>
+	
+	<bean id="dbconinfo2" class="com.ezen.student.dto.DataBaseConnectionInfo">
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="userId" value="system"/>
+		<property name="userPw" value="adminuser"/>
+	</bean>
+	
+	<bean class="com.ezen.student.dao.StudentDao" id="studentdao">
+		<constructor-arg ref="dbconinfo1"></constructor-arg>
+	</bean>
 	
 	<bean id="selectAllService" class="com.ezen.student.service.SelectAllService">
 		<constructor-arg ref="studentdao"></constructor-arg>
