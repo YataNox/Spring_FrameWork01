@@ -8,12 +8,12 @@ import com.ezen.word.dto.WordSet;
 public class WordSearchService {
 	
 	@Autowired
-	private WordDao wdao;
+	private WordDao worddao;
 	
 	/*	public WordSearchService(WordDao wdao) { this.wdao = wdao; }	 */
 	
 	public WordSet searchWord(String kw) {
-		WordSet ws = wdao.search(kw);
+		WordSet ws = worddao.search(kw);
 		return ws;
 	}	
 }
