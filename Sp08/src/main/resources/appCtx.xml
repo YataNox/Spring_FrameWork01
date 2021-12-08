@@ -13,19 +13,19 @@
 	</bean>
 	
 	<bean id="dbmanager" class="com.ezen.word.util.DataBaseManager">
-		<constructor-arg ref="dbuserinfo"></constructor-arg>
+		<!-- <constructor-arg ref="dbuserinfo"></constructor-arg> -->
 	</bean>
 	
 	<bean id="worddao" class="com.ezen.word.dao.WordDao">
-		<constructor-arg ref="dbmanager"></constructor-arg>
+		<!-- <constructor-arg ref="dbmanager"></constructor-arg> -->
 	</bean>
 	
 	<bean id="registerService" class="com.ezen.word.service.WordRegisterService">
-		<constructor-arg ref="worddao"></constructor-arg>
+		<!-- <constructor-arg ref="worddao"></constructor-arg> -->
 	</bean>
 	
 	<bean id="searchService" class="com.ezen.word.service.WordSearchService">
-		<constructor-arg ref="worddao"></constructor-arg>
+		<!-- <constructor-arg ref="worddao"></constructor-arg> -->
 	</bean>
 	
 </beans>
