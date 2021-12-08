@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.ezen.word.dto.WordSet;
 import com.ezen.word.util.DataBaseManager;
 
@@ -15,11 +17,12 @@ public class WordDao {
 	ResultSet rs = null;
 	
 	// DataBaseManager dbm = new DataBaseManager();
-	DataBaseManager dbm = null;
+	@Autowired
+	DataBaseManager dbm;
 	
-	public WordDao(DataBaseManager dbm) {
-		this.dbm = dbm;
-	}
+	// public WordDao(DataBaseManager dbm) {
+	//	 this.dbm = dbm;
+	// }
 
 	public void insert(WordSet ws) {
 		con = dbm.getConnection();
