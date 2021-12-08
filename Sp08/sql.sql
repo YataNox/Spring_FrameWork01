@@ -3,4 +3,5 @@ create table wordset(
 	wordValue varchar2(500)
 );
 
-select * from wordset
+select * from wordset;
+delete from wordset;

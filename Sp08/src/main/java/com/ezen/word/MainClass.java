@@ -1,5 +1,11 @@
 package com.ezen.word;
 
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+import com.ezen.word.dto.WordSet;
+import com.ezen.word.service.WordRegisterService;
+import com.ezen.word.service.WordSearchService;
+
 public class MainClass {
 	public static void main(String[] args) {
 		String[] keyWords = {"c", "c++", "java", "jsp", "spring"};
@@ -10,6 +16,25 @@ public class MainClass {
 			"JSP는 HTML내에 자바 코드를 삽입하여 웹 서버에서 동적으로 웹 페이지를 생성하여 웹 브라우저에 돌려주는 언어이다.",
 			"스프링 프레임워크는 자바 플랫폼을 위한 오픈소스 애플리케이션 프레임워크로서 간단히 스프링이라고도 불린다."
 		};
+		
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:appCtx.xml");
+		
+		WordRegisterService rgt = ctx.getBean("registerService", WordRegisterService.class);
+		
+		for(int i = 0; i < values.length; i++) {
+			WordSet wordSet = new WordSet(keyWords[i],values[i]);
+			rgt.register(wordSet);
+		}
+		
+		WordSearchService ss = ctx.getBean("searchService", WordSearchService.class);
+		
+		System.out.println("\n------------------------------------");
+		WordSet ws = ss.searchWord("java");
+		System.out.print(ws.getWordKey() + "\t: ");
+		System.out.println(ws.getWordValue());
+		System.out.println("------------------------------------");
+		
+		ctx.close();
 	}
 
 }
