@@ -39,7 +39,7 @@
 		<constructor-arg ref="studentdao"></constructor-arg>
 	</bean>
 	
-	<bean id="imformationService" class="com.ezen.student.dto.EMSInformationService">
+	<bean id="informationService" class="com.ezen.student.dto.EMSInformationService">
 		<property name="info">
 			<value>Education Management System program was developed in 2015.</value>
 		</property>
