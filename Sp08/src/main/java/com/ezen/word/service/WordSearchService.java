@@ -10,7 +10,7 @@ public class WordSearchService {
 		this.wdao = wdao;
 	}
 	
-	public WordSet register(String kw) {
+	public WordSet searchWord(String kw) {
 		WordSet ws = wdao.search(kw);
 		return ws;
 	}	
