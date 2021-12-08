@@ -14,7 +14,9 @@ import com.ezen.student.service.UpdateService;
 public class MainClass {
 	public static void main(String[] args) {
 		
-		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:applicationContext.xml");
+		// GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:applicationContext.xml");
+		String[] appCtxs = {"classpath:appCtx01.xml", "classpath:appCtx02.xml", "classpath:appCtx03.xml"};
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext(appCtxs);
 		
 		InsertService is = ctx.getBean("insertService", InsertService.class);
 		SelectAllService sas = ctx.getBean("selectAllService", SelectAllService.class);
